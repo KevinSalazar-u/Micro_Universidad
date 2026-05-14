@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: estudiante-service
+              uri: lb://estudiante-service
+              predicates:
+                - Path=/estudiantes/**
+              filters:
+                - StripPrefix=1
+
+            - id: curso-service
+              uri: lb://curso-service
+              predicates:
+                - Path=/cursos/**
+              filters:
+                - StripPrefix=1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

@@ -1,0 +1,15 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+
+  profiles:
+    active: native
+
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///C:/Users/kevin/Desktop/Universidad/Sexto/Aplicaciones%20Distribuidas/proyectos/micro_universidad/configfiles
